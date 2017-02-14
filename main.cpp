@@ -2,6 +2,7 @@
 #include <string>
 
 #include "restclient-cpp/restclient.h"
+
 #include "libs/rapidxml/rapidxml.hpp"
 #include "libs/colormod.h"
 #include "libs/geturl.h"
@@ -9,68 +10,77 @@
 using namespace std;
 using namespace rapidxml;
 
-#define url "http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false"
+std::string NAME = "NF-e / Avisos";
+std::string PAGE_URL = "http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false";
+std::string BASE_URL = "http://www.nfe.fazenda.gov.br";
+int INTERVAL = 30;
 
 int main ()
 {
 
     auto start = std::chrono::system_clock::now();
 
-    RestClient::Response r = RestClient::get("https://api.nfebot.com.br:8443/news");
-    cout << r.body << endl;
-
     Color::Modifier red(Color::FG_RED);
     Color::Modifier def(Color::FG_DEFAULT);
     Color::Modifier green(Color::FG_GREEN);
 
-    xml_document<> doc;
+    //try {
 
-    cout << green << "---- NF-eBOT Scraper Started" << def << endl;
+        //RestClient::Response r = RestClient::get("https://api.nfebot.com.br:8443/news");
+        //cout << r.body << endl;
 
-    GetURL::getUrl web(url);
+        xml_document<> doc;
 
-    string res = web.getData();
+        cout << green << "---- NF-eBOT Scraper Started" << def << endl;
 
-    if(res.empty())
-    {
-        cerr << red << "Page not found" << def << endl;
-    }
-    else
-    {
+        GetURL::getUrl web(PAGE_URL);
 
-        char* cstr = new char[res.size() + 1];
-        strcpy(cstr, res.c_str());
+        string res = web.getData();
 
-        doc.parse<0>(cstr);
-
-        xml_node<> *node = doc.first_node("html")
-                ->first_node("body")
-                ->first_node("div")
-                ->next_sibling("div")
-                ->first_node()
-                ->first_node("div")
-                ->last_node()
-                ->last_node();
-
-        cout << node->name() << " - " << node->first_attribute()->value() << endl;
-
-        for (xml_node<> * content = node->first_node("div"); content; content = content->next_sibling())
+        if(res.empty())
+        {
+            cout << red << "Cannot access this url !" << endl;
+        }
+        else
         {
 
-            string _class(content->first_attribute()->value());
+            char* cstr = new char[res.size() + 1];
+            strcpy(cstr, res.c_str());
 
-            cout << " " << content->name() << " - " << _class << endl;
+            doc.parse<0>(cstr);
 
-            if(_class == "divInforme")
+            xml_node<> *node = doc.first_node("html")
+                    ->first_node("body")
+                    ->first_node("div")
+                    ->next_sibling("div")
+                    ->first_node()
+                    ->first_node("div")
+                    ->last_node()
+                    ->last_node();
+
+            cout << node->name() << " - " << node->first_attribute()->value() << endl;
+
+            for (xml_node<> * content = node->first_node("div"); content; content = content->next_sibling())
             {
 
-                cout << "  " << content->first_node("p")->value() << endl;
+                string _class(content->first_attribute()->value());
+
+                cout << " " << content->name() << " - " << _class << endl;
+
+                if(_class == "divInforme")
+                {
+
+                    cout << "  " << content->first_node("p")->value() << endl;
+
+                }
 
             }
 
         }
 
-    }
+    //} catch (...) {
+      //  cout << red << "Some error ocurred !" << endl;
+    //}
 
     // Log
     auto end = std::chrono::system_clock::now();
@@ -82,55 +92,13 @@ int main ()
 
 /*
 
- // Variables
-    int integer;
-    bool boolean = true; //8-bits
-    char character;
-    float decimal;
-    double decimal_double;
-    wchar_t long_text;
-    //
-
-    //sleep
-
- #include <chrono>
-#include <thread>
-    std::chrono::seconds dura( 5);
-    std::this_thread::sleep_for( dura );
+ -    //sleep
+-
+- #include <chrono>
+-#include <thread>
+-    std::chrono::seconds dura( 5);
+-    std::this_thread::sleep_for( dura );
 
 
-    CURL *curl;
-    CURLcode res;
-    xml_document<> doc;
 
-    curl_global_init(CURL_GLOBAL_DEFAULT);
-    curl = curl_easy_init();
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
-
-    if(curl) {
-
-        curl_easy_setopt(curl, CURLOPT_URL, "http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false");
-
-        res = curl_easy_perform(curl);
-
-        cout << res << endl;
-
-        // Create string from response
-        //string str = curl_easy_strerror(res);
-        //char* cstr = new char[str.size() + 1];
-        //strcpy(cstr, str.c_str());
-
-        //doc.parse<0>(cstr);
-
-        if(res != CURLE_OK)
-            fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
-
-        curl_easy_cleanup(curl);
-
-    }
-
-    curl_global_cleanup();
-
-    return 0;
-
- */
+ * */
