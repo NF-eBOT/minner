@@ -1,0 +1,3 @@
+/Users/anon/Projects/nf-ebot/scrapers_cpp/CMakeFiles/edit_cache.dir
+/Users/anon/Projects/nf-ebot/scrapers_cpp/CMakeFiles/rebuild_cache.dir
+/Users/anon/Projects/nf-ebot/scrapers_cpp/CMakeFiles/scrapers_cpp.dir
