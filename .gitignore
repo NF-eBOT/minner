@@ -1,4 +1,10 @@
 cmake-build-debug/
 .idea/
+CMakeFiles/
+
 *.out
 .DS_Store
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+

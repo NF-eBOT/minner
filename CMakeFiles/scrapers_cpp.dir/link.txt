@@ -1,1 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/scrapers_cpp.dir/source/main.cpp.o CMakeFiles/scrapers_cpp.dir/source/libs/geturl.cpp.o CMakeFiles/scrapers_cpp.dir/source/libs/helpers.cpp.o  -o scrapers_cpp 

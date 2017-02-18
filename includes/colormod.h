@@ -6,6 +6,7 @@ namespace Color {
         FG_GREEN    = 32,
         FG_BLUE     = 34,
         FG_DEFAULT  = 39,
+
         BG_RED      = 41,
         BG_GREEN    = 42,
         BG_BLUE     = 44,
