@@ -1,7 +1,7 @@
 ### !!! UNDER CONSTRUCTION !!!
 
 # NF-eBOT - Scrapers
-Microservice responsible to extract relevant news in Brazilian government portals.
+Web scraper responsible to extract relevant news in Brazilian government portals.
 
 ## To build
 `g++ -std=c++11 -stdlib=libc++ src/main.cpp includes/*.cpp -w -lcurl -o build/scrapers_cpp.out`
