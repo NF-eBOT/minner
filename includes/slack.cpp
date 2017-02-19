@@ -6,15 +6,11 @@
 #include "slack.h"
 #include "helpers.h"
 
-#include "../config.h"
-
 size_t noop_cb(void *ptr, size_t size, size_t nmemb, void *data) {
     return size * nmemb;
 }
 
 void scraper::Slack::send(std::string message) {
-
-    scraper::Config *config = new Config();
 
     CURL *curl;
     CURLcode res;
@@ -24,13 +20,13 @@ void scraper::Slack::send(std::string message) {
     if (curl) {
 
         curl_easy_setopt(curl, CURLOPT_URL,
-                         "https://hooks.slack.com/services/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");
+                         "https://hooks.slack.com/services/token");
 
         nlohmann::json news;
 
         news = {
-                {"channel",  config->slack_channel},
-                {"username", config->slack_username},
+                {"channel",  "#logs-stage"},
+                {"username", "NF-eBOT System Logs Stage"},
                 {"text",     message}
         };
 
@@ -50,7 +46,6 @@ void scraper::Slack::send(std::string message) {
     }
 
     curl_global_cleanup();
-    delete config;
 
 }
 

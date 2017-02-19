@@ -7,7 +7,7 @@ namespace scraper {
     class nfebotAPI {
 
     public:
-        static void post_news(nlohmann::json news);
+        static std::string post_news(nlohmann::json news);
 
     };
 
