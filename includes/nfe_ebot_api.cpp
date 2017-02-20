@@ -30,6 +30,11 @@ std::string scraper::nfebotAPI::post_news(nlohmann::json news){
         if (res != CURLE_OK)
             return curl_easy_strerror(res);
 
+        curl_easy_cleanup(curl);
+        curl_global_cleanup();
+        delete[] headers;
+        delete config;
+
         return "ok";
 
     }
