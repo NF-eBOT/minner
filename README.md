@@ -1,5 +1,3 @@
-### !!! UNDER CONSTRUCTION !!!
-
 # NF-eBOT - Scrapers
 Web scraper responsible to extract relevant news in Brazilian government portals.
 
