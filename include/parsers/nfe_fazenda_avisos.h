@@ -3,9 +3,9 @@
 #include <string>
 #include <regex>
 
-#include "../rapidxml/rapidxml.hpp"
-#include "../json.hpp"
-#include "../colormod.h"
+#include "../../lib/rapidxml/rapidxml.hpp"
+#include "../../lib/json.hpp"
+#include "../../lib/colormod.h"
 
 #include "general.h"
 #include "../helpers.h"

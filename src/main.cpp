@@ -3,28 +3,28 @@
 #include <memory>
 
 /// Vendor libs
-#include "../includes/json.hpp"
-#include "../includes/colormod.h"
-#include "../includes/rapidxml/rapidxml.hpp"
+#include "../lib/json.hpp"
+#include "../lib/colormod.h"
+#include "../lib/rapidxml/rapidxml.hpp"
 
 /// Instructions with libcurl to get HTML from URL
-#include "../includes/geturl.h"
+#include "../include/geturl.h"
 
 /// General helpers
-#include "../includes/helpers.h"
+#include "../include/helpers.h"
 
 /// Send slack messages for monitoring and log
-#include "../includes/slack.h"
+#include "../include/slack.h"
 
 /// nf-ebot API interface
-#include "../includes/nf_ebot_api.h"
+#include "../include/nf_ebot_api.h"
 
 /// Configuration variables
-#include "config.h"
+#include "../doc/config.h"
 
 /// Parsers
-#include "../includes/parsers/general.h"
-#include "../includes/parsers/nfe_fazenda_avisos.h"
+#include "../include/parsers/general.h"
+#include "../include/parsers/nfe_fazenda_avisos.h"
 
 /// Temrinal colors for logs
 const Color::Modifier red(Color::FG_RED);

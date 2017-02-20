@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../rapidxml/rapidxml.hpp"
-#include "../json.hpp"
+#include "../../lib/rapidxml/rapidxml.hpp"
+#include "../../lib/json.hpp"
 
 namespace parsers{
 

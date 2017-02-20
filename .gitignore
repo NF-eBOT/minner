@@ -1,7 +1,7 @@
 cmake-build-debug/
 .idea/
 CMakeFiles/
-build/
+build/*.out
 
 *.out
 .DS_Store

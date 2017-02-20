@@ -3,9 +3,10 @@
 #include <iostream>
 
 #include <curl/curl.h>
-#include "json.hpp"
 
-#include "../src/config.h"
+#include "../lib/json.hpp"
+
+#include "../doc/config.h"
 
 namespace scraper {
 
