@@ -1,9 +1,7 @@
 #include "slack.h"
 
-size_t noop_cb(size_t size, size_t nmemb) {
-
+size_t noop_cb(void *buffer, size_t size, size_t nmemb, void *userp) {
     return size * nmemb;
-
 }
 
 void scraper::Slack::send(std::string message) {
@@ -32,7 +30,7 @@ void scraper::Slack::send(std::string message) {
 
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, noop_cb);
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, payload.c_str());
-        curl_easy_setopt(curl, CURLOPT_TIMEOUT, 5L);
+        curl_easy_setopt(curl, CURLOPT_TIMEOUT, 5);
 
         res = curl_easy_perform(curl);
 

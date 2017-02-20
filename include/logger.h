@@ -1,8 +1,26 @@
-//
-// Created by Developer on 2/19/17.
-//
+#pragma once
 
-#ifndef NF_EBOT_SCRAPERS_LOGGER_H
-#define NF_EBOT_SCRAPERS_LOGGER_H
+#include <string>
+#include <iostream>
 
-#endif //NF_EBOT_SCRAPERS_LOGGER_H
+#include "../lib/colormod.h"
+
+#include "slack.h"
+
+namespace scraper{
+
+	class Logger{
+
+	public:
+
+		Logger();
+		~Logger();
+
+		void info(std::string message, bool slack_send);
+		void debug(std::string message, bool slack_send);
+		void warning(std::string message, bool slack_send);
+		void error(std::string message, bool slack_send);
+
+	};
+
+}
