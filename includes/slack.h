@@ -1,7 +1,13 @@
 #pragma once
 
 #include <string>
+#include <iostream>
+
 #include <curl/curl.h>
+#include "json.hpp"
+
+#include "../src/config.h"
+#include "helpers.h"
 
 namespace scraper {
 

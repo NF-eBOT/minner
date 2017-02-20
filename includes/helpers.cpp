@@ -1,7 +1,3 @@
-#include <string>
-#include <regex>
-#include <ctime>
-
 #include "helpers.h"
 
 std::string scraper::Helpers::iso_8859_1_to_utf8(std::string &str) {

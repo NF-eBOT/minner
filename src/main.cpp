@@ -1,6 +1,6 @@
 #include <iostream>
 #include <thread>
-#include <tkDecls.h>
+#include <memory>
 
 /// Vendor libs
 #include "../includes/json.hpp"
@@ -9,14 +9,21 @@
 
 /// Instructions with libcurl to get HTML from URL
 #include "../includes/geturl.h"
+
 /// General helpers
 #include "../includes/helpers.h"
+
 /// Send slack messages for monitoring and log
 #include "../includes/slack.h"
+
 /// nf-ebot API interface
 #include "../includes/nf_ebot_api.h"
 
+/// Configuration variables
+#include "config.h"
+
 /// Parsers
+#include "../includes/parsers/general.h"
 #include "../includes/parsers/nfe_fazenda_avisos.h"
 
 /// Temrinal colors for logs
@@ -29,9 +36,11 @@ const Color::Modifier def(Color::FG_DEFAULT);
 int main() {
 
     /// Initialize parser
-    parsers::nfeFazendaAvisos *parser = new parsers::nfeFazendaAvisos();
+    std::unique_ptr<parsers::GeneralParser> parser;
+    parser = std::make_unique<parsers::nfeFazendaAvisos>();
 
-
+    /// Config
+    scraper::Config *config = new scraper::Config();
 
     /// Log
     std::string start_message = "Scraper started -> " + parser->NAME + " at " + scraper::Helpers::date_time_now();
@@ -90,10 +99,10 @@ int main() {
             auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
             std::cout << green << "Scrap end, total execution time -> " << elapsed.count() << "ms" << def << std::endl;
 
-            std::cout << yellow << "Wating " << std::to_string(parser->UPDATE_INTERVAL) << " seconds" << def
+            std::cout << yellow << "Wating " << std::to_string(config->loop_interval) << " seconds" << def
                       << std::endl;
 
-            std::chrono::seconds interval(parser->UPDATE_INTERVAL);
+            std::chrono::seconds interval(config->loop_interval);
             std::this_thread::sleep_for(interval);
 
         }

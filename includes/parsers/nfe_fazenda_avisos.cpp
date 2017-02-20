@@ -16,7 +16,7 @@ parsers::nfeFazendaAvisos::nfeFazendaAvisos() {
 
 }
 
-std::vector<nlohmann::json> parsers::nfeFazendaAvisos::extract(rapidxml::xml_document<>& doc) {
+std::vector<nlohmann::json> parsers::GeneralParser::extract(rapidxml::xml_document<> &doc) {
 
     std::vector<nlohmann::json> news;
 

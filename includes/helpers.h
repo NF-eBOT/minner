@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <regex>
+#include <ctime>
 
 namespace scraper {
 

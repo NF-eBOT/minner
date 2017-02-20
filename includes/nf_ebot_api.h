@@ -1,6 +1,11 @@
 #pragma once
 
-#include "../includes/json.hpp"
+#include <iostream>
+
+#include <curl/curl.h>
+#include "json.hpp"
+
+#include "../src/config.h"
 
 namespace scraper {
 

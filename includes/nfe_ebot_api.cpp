@@ -1,11 +1,8 @@
-#include <curl/curl.h>
-#include <iostream>
-
-#include "json.hpp"
-
 #include "nf_ebot_api.h"
 
 std::string scraper::nfebotAPI::post_news(nlohmann::json news){
+
+    scraper::Config *config = new Config();
 
     CURL *curl;
     CURLcode res;
@@ -14,11 +11,11 @@ std::string scraper::nfebotAPI::post_news(nlohmann::json news){
 
     if (curl) {
 
-        curl_easy_setopt(curl, CURLOPT_URL,
-                         "apu_url");
+        curl_easy_setopt(curl, CURLOPT_URL, config->api_url.c_str());
 
         struct curl_slist *headers = NULL;
-        headers = curl_slist_append(headers, "X-TOKEN: token");
+        std::string token = "X-TOKEN: " + config->api_token;
+        headers = curl_slist_append(headers, token.c_str());
         headers = curl_slist_append(headers, "Content-Type: application/json");
 
         std::string payload = news.dump();

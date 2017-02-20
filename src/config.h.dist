@@ -1,0 +1,38 @@
+#pragma once
+
+#include <string>
+
+namespace scraper{
+
+    class Config{
+
+    public:
+
+        /// General
+        int loop_interval;
+
+        /// API
+        std::string api_url;
+        std::string api_token;
+
+        /// slack
+        std::string slack_token;
+        std::string slack_channel;
+        std::string slack_username;
+
+        Config(){
+
+            this->loop_interval = 10;
+
+            this->api_url = "";
+            this->api_token = "";
+
+            this->slack_token = "";
+            this->slack_channel = "";
+            this->slack_username = "";
+
+        }
+
+    };
+
+}

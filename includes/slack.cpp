@@ -1,16 +1,12 @@
-#include <curl/curl.h>
-#include <iostream>
-
-#include "json.hpp"
-
 #include "slack.h"
-#include "helpers.h"
 
 size_t noop_cb(void *ptr, size_t size, size_t nmemb, void *data) {
     return size * nmemb;
 }
 
 void scraper::Slack::send(std::string message) {
+
+    scraper::Config *config = new scraper::Config();
 
     CURL *curl;
     CURLcode res;
@@ -19,14 +15,14 @@ void scraper::Slack::send(std::string message) {
 
     if (curl) {
 
-        curl_easy_setopt(curl, CURLOPT_URL,
-                         "https://hooks.slack.com/services/token");
+        std::string slack_url = "https://hooks.slack.com/services/" + config->slack_token;
+        curl_easy_setopt(curl, CURLOPT_URL, slack_url.c_str());
 
         nlohmann::json news;
 
         news = {
-                {"channel",  "#logs-stage"},
-                {"username", "NF-eBOT System Logs Stage"},
+                {"channel",  config->slack_channel},
+                {"username", config->slack_username},
                 {"text",     message}
         };
 
