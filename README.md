@@ -5,7 +5,7 @@ Web scraper responsible to extract relevant news in Brazilian government portals
 #### First create ```doc/config.h``` with ```doc/config.h.dist``` template and run:
 `g++ -std=c++14 src/main.cpp include/*.cpp include/parsers/*.cpp -w -v -lcurl -o build/scrapers_cpp.out`
 
-## or
+#### or
 `./scripts/gcc_build.sh`
 
 ## Folder Structure
