@@ -39,6 +39,6 @@ std::string scraper::nfebotAPI::post_news(nlohmann::json news){
 
     }
 
-    curl_global_cleanup();
+    return 0;
 
-};
+}

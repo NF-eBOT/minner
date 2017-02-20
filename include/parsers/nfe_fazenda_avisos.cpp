@@ -12,7 +12,7 @@ parsers::nfeFazendaAvisos::nfeFazendaAvisos() {
     this->NAME = "NF-e / Avisos";
     this->PAGE_URL = "http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false";
     this->BASE_URL = "http://www.nfe.fazenda.gov.br";
-    this->UPDATE_INTERVAL = 1;
+    this->ARGV_KEY = "nfe-avisos";
 
 }
 
@@ -73,7 +73,7 @@ std::vector<nlohmann::json> parsers::GeneralParser::extract(rapidxml::xml_docume
                     {"name",     this->NAME},
                     {"base_url", this->BASE_URL},
                     {"page_url", this->PAGE_URL},
-                    {"interval", this->UPDATE_INTERVAL}
+                    {"interval", "0"}
             };
 
             news.push_back(_new);

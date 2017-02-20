@@ -11,7 +11,6 @@ namespace scraper {
 
         CURL *curl;
         std::string curlBuffer;
-        CURLcode res;
 
     public:
 

@@ -1,7 +1,9 @@
 #include "slack.h"
 
-size_t noop_cb(void *ptr, size_t size, size_t nmemb, void *data) {
+size_t noop_cb(size_t size, size_t nmemb) {
+
     return size * nmemb;
+
 }
 
 void scraper::Slack::send(std::string message) {

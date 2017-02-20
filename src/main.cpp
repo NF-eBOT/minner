@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <memory>
+#include <string>
 
 /// Vendor libs
 #include "../lib/json.hpp"
@@ -33,10 +34,21 @@ const Color::Modifier blue(Color::FG_BLUE);
 const Color::Modifier yellow(Color::FG_YELLOW);
 const Color::Modifier def(Color::FG_DEFAULT);
 
-int main() {
+int main(int argc, char *argv[]) {
+
+    if(argc == 1)
+    {
+        std::cout << "Any help here" << std::endl;
+        return 0;
+    }
+
+    parsers::nfeFazendaAvisos nfeFazendaAvisos;
 
     /// Initialize parser
     std::unique_ptr<parsers::GeneralParser> parser;
+
+    std::string arg = argv[1];
+
     parser = std::make_unique<parsers::nfeFazendaAvisos>();
 
     /// Config
@@ -76,7 +88,7 @@ int main() {
                 std::vector<nlohmann::json> news = parser->extract(doc);
 
                 /// Save news with nf-eBOT API
-                for (int i = 0; i < news.size(); ++i) {
+                for (std::string::size_type i = 0; i < news.size(); ++i) {
 
                     std::string response = scraper::nfebotAPI::post_news(news[i]);
 
