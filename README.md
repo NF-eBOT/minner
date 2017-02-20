@@ -18,3 +18,12 @@ Web scraper responsible to extract relevant news in Brazilian government portals
 * `scripts`: scripts to help build and install
 * `spike`: files to test technologies or ideas
 * `src`: main file
+
+## Special thanks to:
+[@mattgodbolt](https://github.com/mattgodbolt)
+[@dascandy](https://github.com/dascandy)
+[@famastefano](https://github.com/famastefano)
+[@grisumbras](https://github.com/grisumbras)
+[@Corristo](https://github.com/Corristo)
+
+and other guys in [C++ Slack Group](http://cpplang.diegostamigni.com/)
