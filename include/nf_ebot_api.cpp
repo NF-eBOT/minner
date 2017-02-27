@@ -1,6 +1,6 @@
 #include "nf_ebot_api.h"
 
-std::string scraper::nfebotAPI::post_news(nlohmann::json news){
+std::string scraper::nfebotAPI::post_news(const nlohmann::json news){
 
     scraper::Config *config = new Config();
 

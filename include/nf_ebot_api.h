@@ -1,22 +1,20 @@
 #pragma once
 
-#include <iostream>
-
 #include <curl/curl.h>
 
-#include "../lib/json.hpp"
+#include "json.hpp"
 
-#include "../doc/config.h"
+#include "config.h"
 
 namespace scraper {
 
     class nfebotAPI {
 
+    public:
         nfebotAPI();
         ~nfebotAPI();
 
-    public:
-        static std::string post_news(nlohmann::json news);
+        static std::string post_news(const nlohmann::json news);
 
     };
 

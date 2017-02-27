@@ -30,6 +30,20 @@ g++ \
 * `spike`: files to test technologies or ideas
 * `src`: main file
 
+## TODO
+* Create makefile based in `spike/gcc_build.sh`
+* Make `doc/config.h` more simple
+* Change all #include to use .h files
+* Make const parameters in `include/helpers.h`
+* Refactor this code block in `src/main.cpp`:
+```
+rapidxml::xml_document<> doc;
+char *cstr = new char[res.size() + 1];
+strcpy(cstr, res.c_str());
+doc.parse<0>(cstr);
+```
+
+
 ## Special thanks to:
 [@mattgodbolt](https://github.com/mattgodbolt)
 [@dascandy](https://github.com/dascandy)

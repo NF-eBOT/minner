@@ -2,9 +2,9 @@
 
 #include <string>
 
-namespace scraper{
+namespace scraper {
 
-    class Config{
+    class Config {
 
     public:
 
@@ -20,16 +20,16 @@ namespace scraper{
         std::string slack_channel;
         std::string slack_username;
 
-        Config(){
+        Config() {
 
-            this->loop_interval = 10;
+            loop_interval = 1800;
 
-            this->api_url = "";
-            this->api_token = "";
+            api_url = "";
+            api_token = "";
 
-            this->slack_token = "";
-            this->slack_channel = "";
-            this->slack_username = "";
+            slack_token = "";
+            slack_channel = "";
+            slack_username = "";
 
         }
 

@@ -1,11 +1,10 @@
 #pragma once
 
 #include <string>
-#include <iostream>
 
-#include "../lib/colormod.h"
+#include "colormod.h"
 
-#include "slack.h"
+#include "slack.cpp"
 
 namespace scraper{
 
@@ -16,10 +15,10 @@ namespace scraper{
 		Logger();
 		~Logger();
 
-		void info(std::string message, bool slack_send);
-		void debug(std::string message, bool slack_send);
-		void warning(std::string message, bool slack_send);
-		void error(std::string message, bool slack_send);
+		void info(const std::string message, const bool slack_send);
+		void debug(const std::string message, const bool slack_send);
+		void warning(const std::string message, const bool slack_send);
+		void error(const std::string message, const bool slack_send);
 
 	};
 

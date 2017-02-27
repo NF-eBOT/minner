@@ -7,13 +7,14 @@ echo -e "${GREEN}GCC compile started !${NC}"
 
 g++ \
 	-std=c++14 \
-	src/main.cpp \
-	-Iinclude/ \
 	-Ilib/ \
 	-Idoc/ \
-	-Wall \
-	-Wextra \
-	-Wpedantic \
+	-Iinclude/ \
+	-Iinclude/parsers \
+	-w \
 	-v \
 	-lcurl \
-	-o build/scrapers_cpp.out
+	spike/foo.cpp \
+	-o spike/foo.out
+
+echo -e "${GREEN}GCC compile finished, see BUILD folder !${NC}"

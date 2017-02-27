@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <iostream>
 
 #include <curl/curl.h>
 
@@ -11,16 +10,14 @@ namespace scraper {
 
         CURL *curl;
         std::string curlBuffer;
+        static int curlWriter(char *data, size_t size, size_t nmemb, std::string *buffer);
 
     public:
 
         getUrl(std::string url);
-
         ~getUrl();
 
-        static int curlWriter(char *data, size_t size, size_t nmemb, std::string *buffer);
-
-        std::string getData();
+        const std::string getData();
 
     };
 

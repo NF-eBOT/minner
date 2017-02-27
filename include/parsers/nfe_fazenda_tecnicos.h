@@ -11,11 +11,11 @@
 
 namespace parsers{
 
-    class nfeFazendaAvisos : public GeneralParser{
+    class nfeFazendaTecnicos : public GeneralParser{
 
     public:
-        nfeFazendaAvisos();
-        void parse(const rapidxml::xml_document<> &doc);
+        nfeFazendaTecnicos();
+        void parse(rapidxml::xml_document<> &doc);
     };
 
 }

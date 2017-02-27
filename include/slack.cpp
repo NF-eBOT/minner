@@ -4,9 +4,9 @@ size_t noop_cb(void *buffer, size_t size, size_t nmemb, void *userp) {
     return size * nmemb;
 }
 
-void scraper::Slack::send(std::string message) {
+void scraper::Slack::send(const std::string message) {
 
-    scraper::Config *config = new scraper::Config();
+    scraper::Config config;
 
     CURL *curl;
     CURLcode res;
@@ -15,14 +15,14 @@ void scraper::Slack::send(std::string message) {
 
     if (curl) {
 
-        std::string slack_url = "https://hooks.slack.com/services/" + config->slack_token;
+        std::string slack_url = "https://hooks.slack.com/services/" + config.slack_token;
         curl_easy_setopt(curl, CURLOPT_URL, slack_url.c_str());
 
         nlohmann::json news;
 
         news = {
-                {"channel",  config->slack_channel},
-                {"username", config->slack_username},
+                {"channel",  config.slack_channel},
+                {"username", config.slack_username},
                 {"text",     message}
         };
 

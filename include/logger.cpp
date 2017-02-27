@@ -9,22 +9,22 @@ const Color::Modifier def(Color::FG_DEFAULT);
 scraper::Logger::Logger(){}
 scraper::Logger::~Logger(){}
 
-void scraper::Logger::info(std::string message, bool slack_send){
+void scraper::Logger::info(const std::string message, const bool slack_send){
 	std::cout << green << message << def << std::endl;
 	if(slack_send) scraper::Slack::send(message);
 }
 
-void scraper::Logger::debug(std::string message, bool slack_send){
+void scraper::Logger::debug(const std::string message, const bool slack_send){
 	std::cout << blue << message << def << std::endl;
 	if(slack_send) scraper::Slack::send(message);
 }
 
-void scraper::Logger::warning(std::string message, bool slack_send){
+void scraper::Logger::warning(const std::string message, const bool slack_send){
 	std::cout << yellow << message << def << std::endl;
 	if(slack_send) scraper::Slack::send(message);
 }
 
-void scraper::Logger::error(std::string message, bool slack_send){
+void scraper::Logger::error(const std::string message, const bool slack_send){
 	std::cout << red << message << def << std::endl;
 	if(slack_send) scraper::Slack::send(message);
 }

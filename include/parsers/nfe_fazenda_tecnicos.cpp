@@ -1,15 +1,15 @@
-#include "nfe_fazenda_avisos.h"
+#include "nfe_fazenda_tecnicos.h"
 
-parsers::nfeFazendaAvisos::nfeFazendaAvisos() {
+parsers::nfeFazendaTecnicos::nfeFazendaTecnicos() {
 
-    NAME = "NF-e / Avisos";
-    PAGE_URL = "http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false";
-    BASE_URL = "http://www.nfe.fazenda.gov.br";
-    ARGV_KEY = "nfe-avisos";
+    this->NAME = "NF-e / Notas Técnicas";
+    this->PAGE_URL = "http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=tW+YMyk/50s=";
+    this->BASE_URL = "http://www.nfe.fazenda.gov.br";
+    this->ARGV_KEY = "nfe-notas-tecnicas";
 
 }
 
-void parsers::nfeFazendaAvisos::parse(const rapidxml::xml_document<> &doc) {
+void parsers::nfeFazendaTecnicos::parse(rapidxml::xml_document<> &doc) {
 
     /// Logs
     int count_news = 0;
@@ -17,14 +17,61 @@ void parsers::nfeFazendaAvisos::parse(const rapidxml::xml_document<> &doc) {
     /// Select important node in XML
     rapidxml::xml_node<> *node = doc.first_node("html")
             ->first_node("body")
+            ->last_node("div")
+            ->first_node("form")
+            ->first_node("div")
+            ->last_node("div")
+            ->last_node("div")
+            ->first_node()
+            ->first_node("body")
+            ->last_node();
+            //->document()
+            //->first_node()
+            //->first_node("body")
+            //->last_node();
+            //->first_node();
+            //->next_sibling();
+            //->last_node();
+            //->next_sibling("div");
+
+            /*
             ->first_node("div")
             ->next_sibling("div")
             ->first_node()
             ->first_node("div")
             ->last_node()
             ->last_node();
+             */
 
     for (rapidxml::xml_node<> *content = node->first_node("div"); content; content = content->next_sibling()) {
+
+        std::string _class = content->first_attribute()->value();
+
+        std::cout << _class << std::endl;
+
+        if(_class == "indentacaoNormal"){
+            
+            std::cout << "\t" << "found" << std::endl;
+            
+
+            for (rapidxml::xml_node<> *content_2 = content->first_node(); content_2; content_2 = content_2->next_sibling()) {
+
+                std::string _class = content->name();
+
+                std::cout << "\t\t" << _class << std::endl;
+
+
+            }
+
+        }
+
+    }
+
+
+
+    /*
+
+     for (rapidxml::xml_node<> *content = node->first_node("div"); content; content = content->next_sibling()) {
 
         /// Get node class attribute
         std::string _class = content->first_attribute()->value();
@@ -34,7 +81,7 @@ void parsers::nfeFazendaAvisos::parse(const rapidxml::xml_document<> &doc) {
 
             /// Logs
             count_news++;
-            //std::cout << blue << "Found news " + std::to_string(count_news) << def << std::endl;
+            std::cout << blue << "Found news " + std::to_string(count_news) << def << std::endl;
 
             /// Get node value
             std::string content_news = content->first_node("p")->value();
@@ -71,5 +118,7 @@ void parsers::nfeFazendaAvisos::parse(const rapidxml::xml_document<> &doc) {
 
         }
     }
+
+     */
 
 }

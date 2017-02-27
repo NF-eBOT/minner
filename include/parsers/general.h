@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../lib/rapidxml/rapidxml.hpp"
-#include "../../lib/json.hpp"
+#include "rapidxml/rapidxml.hpp"
+#include "json.hpp"
 
 namespace parsers{
 
@@ -16,7 +16,9 @@ namespace parsers{
         std::string BASE_URL;
         std::string ARGV_KEY;
 
-        std::vector<nlohmann::json> extract(rapidxml::xml_document<>& doc);
+        std::vector<nlohmann::json> news;
+
+        virtual void parse(const rapidxml::xml_document<> &doc){};
 
     };
 

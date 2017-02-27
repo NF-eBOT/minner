@@ -1,6 +1,6 @@
 #include "geturl.h"
 
-std::string scraper::getUrl::getData() {
+const std::string scraper::getUrl::getData() {
     return curlBuffer;
 }
 
