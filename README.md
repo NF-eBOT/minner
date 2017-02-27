@@ -1,12 +1,16 @@
 # NF-eBOT - Scrapers
 Web scraper responsible to extract relevant news in Brazilian government portals.
 
-## To build
+
+## To Build
 #### First create ```doc/config.h``` with ```doc/config.h.dist``` template and run:
 `./scripts/gcc_build.sh`
 
-## Folder Structure
 
+## To Run
+`./build/scrapers_cpp.out`
+
+## Folder Structure
 * `build`: where builded executable is saved
 * `doc`: configuration file
 * `include`: local headers
@@ -15,6 +19,7 @@ Web scraper responsible to extract relevant news in Brazilian government portals
 * `scripts`: scripts to help build and install
 * `spike`: files to test technologies or ideas
 * `src`: main file
+
 
 ## TODO
 * Create makefile based in `spike/gcc_build.sh`
