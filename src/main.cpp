@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    logger.debug("Scraper with parser started.", parser->NAME, false);
+    logger.debug("Scraper with parser started.", parser->NAME, true);
 
     /// Infinite loop, have pause set by const int UPDATE_INTERVAL
     for (;;) {
