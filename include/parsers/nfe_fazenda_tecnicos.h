@@ -15,7 +15,7 @@ namespace parsers{
 
     public:
         nfeFazendaTecnicos();
-        void parse(rapidxml::xml_document<> &doc);
+        void parse(const rapidxml::xml_document<> &doc);
     };
 
 }

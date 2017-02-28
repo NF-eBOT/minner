@@ -8,7 +8,12 @@ Web scraper responsible to extract relevant news in Brazilian government portals
 
 
 ## To Run
-`./build/scrapers_cpp.out`
+`./build/scrapers_cpp.out scraper_key`
+
+## Scrapers key
+`nfe-notas-tecnicas` [nfe.fazenda.gov.br / Notas Técnicas](http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=tW+YMyk/50s=)
+
+`nfe-avisos` [nfe.fazenda.gov.br / Avisos](http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false)
 
 ## Folder Structure
 * `build`: where builded executable is saved

@@ -16,5 +16,3 @@ g++ \
 	-lcurl \
 	spike/foo.cpp \
 	-o spike/foo.out
-
-echo -e "${GREEN}GCC compile finished, see BUILD folder !${NC}"

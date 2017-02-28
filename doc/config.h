@@ -23,7 +23,7 @@ namespace scraper {
 
         Config() {
 
-            loop_interval = 1800;
+            loop_interval = 0;
 
             /*
             api_url = "https://api.nfebot.com.br:8443/news";

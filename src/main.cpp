@@ -25,6 +25,7 @@
 /// Parsers
 #include "parsers/general.h"
 #include "parsers/nfe_fazenda_avisos.cpp"
+#include "parsers/nfe_fazenda_tecnicos.cpp"
 
 int main(int argc, char *argv[]) {
 
@@ -34,20 +35,28 @@ int main(int argc, char *argv[]) {
     /// Log
     logger.info("Scraper main process started at " + scraper::Helpers::date_time_now(), true);
 
-    /// Initialize generic parser
-    std::unique_ptr<parsers::GeneralParser> parser;
-
-    if(argc == 1)
-    {
-        logger.error("Scraper do not defined, see README.md for more informations!", false);
-        return 0;
+    if (argc == 1) {
+        logger.error("Scraper not defined, see README.md for more informations!", false);
+        return -1;
     }
 
-    std::string arg = argv[1];
+    std::string arg_parser = argv[1];
+
+    /// Initialize parsers
+    std::unique_ptr <parsers::GeneralParser> parser;
 
     parsers::nfeFazendaAvisos nfeFazendaAvisos;
+    parsers::nfeFazendaTecnicos nfeFazendaTecnicos;
 
-    parser = std::make_unique<parsers::nfeFazendaAvisos>();
+    if (arg_parser == nfeFazendaAvisos.ARGV_KEY)
+        parser = std::make_unique<parsers::nfeFazendaAvisos>();
+    else if (arg_parser == nfeFazendaTecnicos.ARGV_KEY)
+        parser = std::make_unique<parsers::nfeFazendaTecnicos>();
+
+    if (!parser) {
+        logger.error("Invalid scrap, see README.md for more informations!", false);
+        return -1;
+    }
 
     /// Infinite loop, have pause set by const int UPDATE_INTERVAL
     for (;;) {
@@ -78,7 +87,7 @@ int main(int argc, char *argv[]) {
                 parser->parse(doc);
 
                 /// Extract news from XML and generate JSON
-                std::vector<nlohmann::json> news = parser->news;
+                std::vector <nlohmann::json> news = parser->news;
 
                 /// Save news with nf-eBOT API
                 for (std::string::size_type i = 0; i < news.size(); ++i) {

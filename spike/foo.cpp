@@ -7,6 +7,8 @@
 #include "json.hpp"
 #include "rapidxml/rapidxml.hpp"
 
+#include "logger.cpp"
+
 /// Configuration variables
 #include "config.h"
 
@@ -21,20 +23,11 @@
 
 int main(int argc, char *argv[]) {
 
-    scraper::Config config;
-
-    std::cout << config.loop_interval << std::endl;
-
-
-    /*
     scraper::Logger logger;
-    logger.info("Started foo main", false);
-
+    logger.info("Started foo main !", false);
+    
     std::unique_ptr<parsers::GeneralParser> parser;
-
-    parsers::nfeFazendaAvisos nfeFazendaAvisos;
     parsers::nfeFazendaTecnicos nfeFazendaTecnicos;
-
     parser = std::make_unique<parsers::nfeFazendaTecnicos>();
 
     /// Get HTML/XML from PAGE_URL
@@ -50,6 +43,5 @@ int main(int argc, char *argv[]) {
     parser->parse(doc);
 
     std::cout << parser->news << std::endl;
-     */
 
 }

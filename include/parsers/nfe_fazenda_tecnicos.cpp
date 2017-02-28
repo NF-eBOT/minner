@@ -2,16 +2,17 @@
 
 parsers::nfeFazendaTecnicos::nfeFazendaTecnicos() {
 
-    this->NAME = "NF-e / Notas Técnicas";
-    this->PAGE_URL = "http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=tW+YMyk/50s=";
-    this->BASE_URL = "http://www.nfe.fazenda.gov.br";
-    this->ARGV_KEY = "nfe-notas-tecnicas";
+    NAME = "NF-e / Notas Técnicas";
+    PAGE_URL = "http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=tW+YMyk/50s=";
+    BASE_URL = "http://www.nfe.fazenda.gov.br";
+    ARGV_KEY = "nfe-notas-tecnicas";
 
 }
 
-void parsers::nfeFazendaTecnicos::parse(rapidxml::xml_document<> &doc) {
+void parsers::nfeFazendaTecnicos::parse(const rapidxml::xml_document<> &doc) {
 
     /// Logs
+    scraper::Logger logger;
     int count_news = 0;
 
     /// Select important node in XML
@@ -25,100 +26,36 @@ void parsers::nfeFazendaTecnicos::parse(rapidxml::xml_document<> &doc) {
             ->first_node()
             ->first_node("body")
             ->last_node();
-            //->document()
-            //->first_node()
-            //->first_node("body")
-            //->last_node();
-            //->first_node();
-            //->next_sibling();
-            //->last_node();
-            //->next_sibling("div");
-
-            /*
-            ->first_node("div")
-            ->next_sibling("div")
-            ->first_node()
-            ->first_node("div")
-            ->last_node()
-            ->last_node();
-             */
 
     for (rapidxml::xml_node<> *content = node->first_node("div"); content; content = content->next_sibling()) {
 
         std::string _class = content->first_attribute()->value();
 
-        std::cout << _class << std::endl;
+        if (_class == "indentacaoNormal") {
 
-        if(_class == "indentacaoNormal"){
-            
-            std::cout << "\t" << "found" << std::endl;
-            
+            for (rapidxml::xml_node<> *content_p = content->first_node(
+                    "p"); content_p; content_p = content_p->next_sibling()) {
 
-            for (rapidxml::xml_node<> *content_2 = content->first_node(); content_2; content_2 = content_2->next_sibling()) {
+                logger.debug("Found news " + std::to_string(count_news), false);
+                count_news++;
 
-                std::string _class = content->name();
+                std::string title = content_p->first_node("a")->first_node("span")->value();
+                std::string title_utf8 = scraper::Helpers::iso_8859_1_to_utf8(title);
 
-                std::cout << "\t\t" << _class << std::endl;
+                /// Create json to post in API
+                nlohmann::json _new;
+                _new["title"] = title_utf8;
 
+                _new["scraper"] = {
+                        {"name",     NAME},
+                        {"base_url", BASE_URL},
+                        {"page_url", PAGE_URL},
+                        {"interval", "0"}
+                };
+
+                this->news.push_back(_new);
 
             }
-
-        }
-
-    }
-
-
-
-    /*
-
-     for (rapidxml::xml_node<> *content = node->first_node("div"); content; content = content->next_sibling()) {
-
-        /// Get node class attribute
-        std::string _class = content->first_attribute()->value();
-
-        /// Check if node is news node
-        if (_class == "divInforme") {
-
-            /// Logs
-            count_news++;
-            std::cout << blue << "Found news " + std::to_string(count_news) << def << std::endl;
-
-            /// Get node value
-            std::string content_news = content->first_node("p")->value();
-            /// Remove strange things in text
-            std::string news_sanitized = scraper::Helpers::sanitize_news(content_news);
-
-            const std::string &_news_sanitized = news_sanitized;
-
-            /// Extract date
-            std::regex r_date("^\\d{2}\\/\\d{2}\\/\\d{4}");
-            std::smatch m_date;
-            std::regex_search(_news_sanitized.begin(), _news_sanitized.end(), m_date, r_date);
-            std::string date = m_date[0];
-
-            /// Extract title/description
-            std::regex r_desc(" - (.*)");
-            std::smatch m_desc;
-            std::regex_search(_news_sanitized.begin(), _news_sanitized.end(), m_desc, r_desc);
-            std::string description = m_desc[1];
-
-            /// Create json to post in API
-            nlohmann::json _new;
-            _new["date"] = date;
-            _new["title"] = description;
-
-            _new["scraper"] = {
-                    {"name",     this->NAME},
-                    {"base_url", this->BASE_URL},
-                    {"page_url", this->PAGE_URL},
-                    {"interval", "0"}
-            };
-
-            this->news.push_back(_new);
-
         }
     }
-
-     */
-
 }

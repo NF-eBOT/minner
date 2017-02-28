@@ -12,6 +12,7 @@ parsers::nfeFazendaAvisos::nfeFazendaAvisos() {
 void parsers::nfeFazendaAvisos::parse(const rapidxml::xml_document<> &doc) {
 
     /// Logs
+    scraper::Logger logger;
     int count_news = 0;
 
     /// Select important node in XML
@@ -33,8 +34,8 @@ void parsers::nfeFazendaAvisos::parse(const rapidxml::xml_document<> &doc) {
         if (_class == "divInforme") {
 
             /// Logs
+            logger.debug("Found news " + std::to_string(count_news), false);
             count_news++;
-            //std::cout << blue << "Found news " + std::to_string(count_news) << def << std::endl;
 
             /// Get node value
             std::string content_news = content->first_node("p")->value();
@@ -61,9 +62,9 @@ void parsers::nfeFazendaAvisos::parse(const rapidxml::xml_document<> &doc) {
             _new["title"] = description;
 
             _new["scraper"] = {
-                    {"name",     this->NAME},
-                    {"base_url", this->BASE_URL},
-                    {"page_url", this->PAGE_URL},
+                    {"name",     NAME},
+                    {"base_url", BASE_URL},
+                    {"page_url", PAGE_URL},
                     {"interval", "0"}
             };
 
