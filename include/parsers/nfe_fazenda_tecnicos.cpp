@@ -36,7 +36,8 @@ void parsers::nfeFazendaTecnicos::parse(const rapidxml::xml_document<> &doc) {
             for (rapidxml::xml_node<> *content_p = content->first_node(
                     "p"); content_p; content_p = content_p->next_sibling()) {
 
-                logger.debug("Found news " + std::to_string(count_news), false);
+                /// Logs
+                logger.debug("Found news " + std::to_string(count_news), NAME, false);
                 count_news++;
 
                 std::string title = content_p->first_node("a")->first_node("span")->value();

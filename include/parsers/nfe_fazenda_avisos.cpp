@@ -34,13 +34,13 @@ void parsers::nfeFazendaAvisos::parse(const rapidxml::xml_document<> &doc) {
         if (_class == "divInforme") {
 
             /// Logs
-            logger.debug("Found news " + std::to_string(count_news), false);
+            logger.debug("Found news " + std::to_string(count_news), NAME, false);
             count_news++;
 
             /// Get node value
             std::string content_news = content->first_node("p")->value();
             /// Remove strange things in text
-            std::string news_sanitized = scraper::Helpers::sanitize_news(content_news);
+            std::string news_sanitized = scraper::Helpers::remove_new_lines(content_news);
 
             const std::string &_news_sanitized = news_sanitized;
 
@@ -54,12 +54,13 @@ void parsers::nfeFazendaAvisos::parse(const rapidxml::xml_document<> &doc) {
             std::regex r_desc(" - (.*)");
             std::smatch m_desc;
             std::regex_search(_news_sanitized.begin(), _news_sanitized.end(), m_desc, r_desc);
-            std::string description = m_desc[1];
+            std::string title = m_desc[1];
+            std::string title_utf8 = scraper::Helpers::iso_8859_1_to_utf8(title);
 
             /// Create json to post in API
             nlohmann::json _new;
             _new["date"] = date;
-            _new["title"] = description;
+            _new["title"] = title_utf8;
 
             _new["scraper"] = {
                     {"name",     NAME},
@@ -72,5 +73,4 @@ void parsers::nfeFazendaAvisos::parse(const rapidxml::xml_document<> &doc) {
 
         }
     }
-
 }

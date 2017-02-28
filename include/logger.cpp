@@ -9,22 +9,22 @@ const Color::Modifier def(Color::FG_DEFAULT);
 scraper::Logger::Logger(){}
 scraper::Logger::~Logger(){}
 
-void scraper::Logger::info(const std::string message, const bool slack_send){
-	std::cout << green << message << def << std::endl;
-	if(slack_send) scraper::Slack::send(message);
+void scraper::Logger::info(const std::string message, const std::string parser_name, const bool slack_send){
+	std::cout << green << parser_name << " - " << message << def << std::endl;
+	if(slack_send) scraper::Slack::send(parser_name + " - " + message);
 }
 
-void scraper::Logger::debug(const std::string message, const bool slack_send){
-	std::cout << blue << message << def << std::endl;
-	if(slack_send) scraper::Slack::send(message);
+void scraper::Logger::debug(const std::string message, const std::string parser_name, const bool slack_send){
+	std::cout << blue << parser_name << " - " << message << def << std::endl;
+	if(slack_send) scraper::Slack::send(parser_name + " - " + message);
 }
 
-void scraper::Logger::warning(const std::string message, const bool slack_send){
-	std::cout << yellow << message << def << std::endl;
-	if(slack_send) scraper::Slack::send(message);
+void scraper::Logger::warning(const std::string message, const std::string parser_name, const bool slack_send){
+	std::cout << yellow << parser_name << " - " << message << def << std::endl;
+	if(slack_send) scraper::Slack::send(parser_name + " - " + message);
 }
 
-void scraper::Logger::error(const std::string message, const bool slack_send){
-	std::cout << red << message << def << std::endl;
-	if(slack_send) scraper::Slack::send(message);
+void scraper::Logger::error(const std::string message, const std::string parser_name, const bool slack_send){
+	std::cout << red << parser_name << " - " << message << def << std::endl;
+	if(slack_send) scraper::Slack::send(parser_name + " - " + message);
 }

@@ -20,7 +20,6 @@ std::string scraper::nfebotAPI::post_news(const nlohmann::json news){
 
         std::string payload = news.dump();
 
-        //curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, noop_cb);
         curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, payload.c_str());
         curl_easy_setopt(curl, CURLOPT_TIMEOUT, 5L);

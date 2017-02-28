@@ -12,7 +12,7 @@ namespace scraper {
         // TODO: Make const parameter
         static std::string iso_8859_1_to_utf8(std::string &str);
         // TODO: Make const parameter
-        static std::string sanitize_news(std::string text);
+        static std::string remove_new_lines(std::string text);
 
         static std::string date_time_now();
 

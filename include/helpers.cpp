@@ -17,13 +17,9 @@ std::string scraper::Helpers::iso_8859_1_to_utf8(std::string &str) {
     return strOut;
 }
 
-std::string scraper::Helpers::sanitize_news(std::string text) {
-
-    std::string description_decoded = scraper::Helpers::iso_8859_1_to_utf8(text);
+std::string scraper::Helpers::remove_new_lines(std::string text) {
     std::regex remove_spaces("\\s+");
-
-    return std::regex_replace(description_decoded, remove_spaces, " ");
-
+    return std::regex_replace(text, remove_spaces, " ");
 }
 
 std::string scraper::Helpers::date_time_now() {

@@ -19,6 +19,7 @@ namespace parsers{
         std::vector<nlohmann::json> news;
 
         virtual void parse(const rapidxml::xml_document<> &doc){};
+        virtual void normalize_html(std::string &res){};
 
     };
 

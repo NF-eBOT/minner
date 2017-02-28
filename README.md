@@ -15,6 +15,8 @@ Web scraper responsible to extract relevant news in Brazilian government portals
 
 `nfe-avisos` [nfe.fazenda.gov.br / Avisos](http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false)
 
+`sped` [sped.rfb.gov.br / Destaques](http://sped.rfb.gov.br)
+
 ## Folder Structure
 * `build`: where builded executable is saved
 * `doc`: configuration file
