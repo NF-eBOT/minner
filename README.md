@@ -3,6 +3,9 @@ Web scraper responsible to extract relevant news in Brazilian government portals
 
 
 ## To Build
+#### Dependencies
+[libcurl](https://curl.haxx.se/libcurl) - install via OS package manager (ex: apt install libcurl)
+
 #### First create ```doc/config.h``` with ```doc/config.h.dist``` template and run:
 `./scripts/gcc_build.sh`
 
