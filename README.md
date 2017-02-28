@@ -1,6 +1,7 @@
 # NF-eBOT - Scrapers
 Web scraper responsible to extract relevant news in Brazilian government portals.
 
+<br>
 
 ## To Build
 #### Dependencies
@@ -9,9 +10,12 @@ Web scraper responsible to extract relevant news in Brazilian government portals
 #### First create ```doc/config.h``` with ```doc/config.h.dist``` template and run:
 `./scripts/gcc_build.sh`
 
+<br>
 
 ## To Run
 `./build/scrapers_cpp.out scraper_key`
+
+<br>
 
 ## Scrapers key
 `nfe-notas-tecnicas` [nfe.fazenda.gov.br / Notas Técnicas](http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=tW+YMyk/50s=)
@@ -19,6 +23,8 @@ Web scraper responsible to extract relevant news in Brazilian government portals
 `nfe-avisos` [nfe.fazenda.gov.br / Avisos](http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false)
 
 `sped` [sped.rfb.gov.br / Destaques](http://sped.rfb.gov.br)
+
+<br>
 
 ## Folder Structure
 * `build`: where builded executable is saved
@@ -30,6 +36,7 @@ Web scraper responsible to extract relevant news in Brazilian government portals
 * `spike`: files to test technologies or ideas
 * `src`: main file
 
+<br>
 
 ## TODO
 * Create makefile based in `spike/gcc_build.sh`
@@ -44,6 +51,7 @@ strcpy(cstr, res.c_str());
 doc.parse<0>(cstr);
 ```
 
+<br>
 
 ## Special thanks to:
 [@mattgodbolt](https://github.com/mattgodbolt)
