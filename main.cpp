@@ -20,7 +20,7 @@
 #include "helpers.cpp"
 
 /// nf-ebot API interface
-#include "nf_ebot_api.cpp"
+#include "services/api.cpp"
 
 /// Parsers
 #include "parsers/general.h"
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
     scraper::Config config;
 
     /// Log
-    logger.info("Scraper main process started at " + scraper::Helpers::date_time_now(), "General", true);
+    logger.info("Minner process started at " + scraper::Helpers::date_time_now(), "General", true);
 
     if (argc == 1) {
         logger.error("Scraper not defined, see README.md for more informations!", "General", false);

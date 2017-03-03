@@ -10,6 +10,7 @@ namespace scraper {
 
         /// General
         int loop_interval;
+        bool dev_mode;
 
         /// API
         std::string api_url;
@@ -22,7 +23,7 @@ namespace scraper {
 
         Config() {
 
-            loop_interval = 1800;
+            loop_interval = 1800; //in miliseconds
 
             api_url = "";
             api_token = "";

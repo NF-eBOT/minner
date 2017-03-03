@@ -5,7 +5,7 @@ parsers::Sped::Sped() {
     NAME = "Sped / Destaques";
     PAGE_URL = "http://sped.rfb.gov.br";
     BASE_URL = "http://sped.rfb.gov.br";
-    ARGV_KEY = "sped";
+    ARGV_KEY = "--sped";
 
 }
 

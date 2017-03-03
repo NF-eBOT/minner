@@ -1,8 +1,15 @@
-#include "nf_ebot_api.h"
+#include "api.h"
 
 std::string scraper::nfebotAPI::post_news(const nlohmann::json news){
 
-    scraper::Config *config = new Config();
+    scraper::Config config;
+    scraper::Logger logger;
+
+    if(config.dev_mode)
+    {
+        logger.warning(news.dump(), "", false);
+        return "Dev mode activated.";
+    }
 
     CURL *curl;
     CURLcode res;
@@ -11,10 +18,11 @@ std::string scraper::nfebotAPI::post_news(const nlohmann::json news){
 
     if (curl) {
 
-        curl_easy_setopt(curl, CURLOPT_URL, config->api_url.c_str());
+        curl_easy_setopt(curl, CURLOPT_URL, config.api_url.c_str());
 
+        // TODO: check if this is necessary \/
         struct curl_slist *headers = NULL;
-        std::string token = "X-TOKEN: " + config->api_token;
+        std::string token = "X-TOKEN: " + config.api_token;
         headers = curl_slist_append(headers, token.c_str());
         headers = curl_slist_append(headers, "Content-Type: application/json");
 
@@ -32,7 +40,6 @@ std::string scraper::nfebotAPI::post_news(const nlohmann::json news){
         curl_easy_cleanup(curl);
         curl_global_cleanup();
         delete[] headers;
-        delete config;
 
         return "ok";
 

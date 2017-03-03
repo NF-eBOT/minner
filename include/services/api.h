@@ -5,6 +5,7 @@
 #include "json.hpp"
 
 #include "config.h"
+#include "logger.h"
 
 namespace scraper {
 

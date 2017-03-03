@@ -10,21 +10,21 @@ scraper::Logger::Logger(){}
 scraper::Logger::~Logger(){}
 
 void scraper::Logger::info(const std::string message, const std::string parser_name, const bool slack_send){
-	std::cout << green << parser_name << " - " << message << def << std::endl;
+	std::cout << green << "[INFO] " << parser_name << " - " << message << def << std::endl;
 	if(slack_send) scraper::Slack::send(parser_name + " - " + message);
 }
 
 void scraper::Logger::debug(const std::string message, const std::string parser_name, const bool slack_send){
-	std::cout << blue << parser_name << " - " << message << def << std::endl;
+	std::cout << blue << "[DEBUG] " << parser_name << " - " << message << def << std::endl;
 	if(slack_send) scraper::Slack::send(parser_name + " - " + message);
 }
 
 void scraper::Logger::warning(const std::string message, const std::string parser_name, const bool slack_send){
-	std::cout << yellow << parser_name << " - " << message << def << std::endl;
+	std::cout << yellow << "[WARNING] " << parser_name << " - " << message << def << std::endl;
 	if(slack_send) scraper::Slack::send(parser_name + " - " + message);
 }
 
 void scraper::Logger::error(const std::string message, const std::string parser_name, const bool slack_send){
-	std::cout << red << parser_name << " - " << message << def << std::endl;
+	std::cout << red << "[ERROR] " << parser_name << " - " << message << def << std::endl;
 	if(slack_send) scraper::Slack::send(parser_name + " - " + message);
 }

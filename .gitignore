@@ -9,3 +9,4 @@ CMakeCache.txt
 cmake_install.cmake
 Makefile
 doc/config.h
+CMakeLists.txt

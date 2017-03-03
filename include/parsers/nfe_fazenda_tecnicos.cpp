@@ -5,7 +5,7 @@ parsers::nfeFazendaTecnicos::nfeFazendaTecnicos() {
     NAME = "NF-e / Notas Técnicas";
     PAGE_URL = "http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=tW+YMyk/50s=";
     BASE_URL = "http://www.nfe.fazenda.gov.br";
-    ARGV_KEY = "nfe-notas-tecnicas";
+    ARGV_KEY = "--nfe-notas-tecnicas";
 
 }
 

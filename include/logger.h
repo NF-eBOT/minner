@@ -4,7 +4,7 @@
 
 #include "colormod.h"
 
-#include "slack.cpp"
+#include "services/slack.cpp"
 
 namespace scraper{
 
