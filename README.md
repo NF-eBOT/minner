@@ -1,3 +1,5 @@
+*under construction
+
 # Minner - Web Scraper
 Minner is a easy way to make any web scraper for data-mining, builded in C++14, with only one shared library, libcurl. Have log messages with slack and terminal.
 
@@ -14,8 +16,6 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 
 ## To Run
 `./build/scrapers_cpp.out --SCRAPER_KEY`
-
-`--dev` -> use this attr to output scraped data in terminal without make API post.
 
 <br>
 
