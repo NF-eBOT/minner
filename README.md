@@ -15,6 +15,8 @@ Web scraper responsible to extract relevant news in Brazilian government portals
 ## To Run
 `./build/scrapers_cpp.out scraper_key`
 
+`--dev` -> use this attr to output scraped data in terminal without make API post.
+
 <br>
 
 ## Scrapers key
