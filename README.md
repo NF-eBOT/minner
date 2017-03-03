@@ -29,14 +29,15 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 <br>
 
 ## Folder Structure
+* `app`: application source files
+  * `app/include`: application lib/modules source file
+    * `app/include/parsers`: web page parse layer
+    * `app/include/services`: external web services
 * `build`: where builded executable is saved
 * `doc`: configuration file
-* `include`: local headers
-* `include/parsers`: logic of portals/sites scraped
 * `lib`: vendor libs
 * `scripts`: scripts to help build and install
 * `spike`: files to test technologies or ideas
-* `src`: main file
 
 <br>
 
