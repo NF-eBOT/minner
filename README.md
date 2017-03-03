@@ -46,13 +46,14 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 * Make `doc/config.h` more simple
 * Change all #include to use .h files
 * Make const parameters in `include/helpers.h`
-* Refactor this code block in `src/main.cpp`:
+* Refactor this code block in `app/main.cpp`:
 ```
 rapidxml::xml_document<> doc;
 char *cstr = new char[res.size() + 1];
 strcpy(cstr, res.c_str());
 doc.parse<0>(cstr);
 ```
+And a lot of more refactors...
 
 <br>
 
