@@ -5,7 +5,7 @@ parsers::nfeFazendaAvisos::nfeFazendaAvisos() {
     NAME = "NF-e / Avisos";
     PAGE_URL = "http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false";
     BASE_URL = "http://www.nfe.fazenda.gov.br";
-    ARGV_KEY = "--nfe-avisos";
+    KEY = "--nfe-avisos";
 
 }
 

@@ -51,11 +51,11 @@ int main(int argc, char *argv[]) {
     parsers::Sped Sped;
 
     /// Define parse by command line argument
-    if (arg_parser == nfeFazendaAvisos.ARGV_KEY)
+    if (arg_parser == nfeFazendaAvisos.KEY)
         parser = std::make_unique<parsers::nfeFazendaAvisos>();
-    else if (arg_parser == nfeFazendaTecnicos.ARGV_KEY)
+    else if (arg_parser == nfeFazendaTecnicos.KEY)
         parser = std::make_unique<parsers::nfeFazendaTecnicos>();
-    else if (arg_parser == Sped.ARGV_KEY)
+    else if (arg_parser == Sped.KEY)
         parser = std::make_unique<parsers::Sped>();
 
     if (!parser) {
