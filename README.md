@@ -5,7 +5,7 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 
 <br>
 
-## To Build
+## To Build (only tested in macOS)
 #### Dependencies
 [libcurl](https://curl.haxx.se/libcurl) - install via OS package manager (ex: apt install libcurl)
 
