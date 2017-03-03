@@ -1,5 +1,5 @@
-# NF-eBOT - Scrapers
-Web scraper responsible to extract relevant news in Brazilian government portals.
+# Minner - Web Scraper
+Minner is a easy way to make any web scraper for data-mining, builded in C++14, with only one shared library, libcurl. Have log messages with slack and terminal.
 
 <br>
 
@@ -7,19 +7,19 @@ Web scraper responsible to extract relevant news in Brazilian government portals
 #### Dependencies
 [libcurl](https://curl.haxx.se/libcurl) - install via OS package manager (ex: apt install libcurl)
 
-#### First create ```doc/config.h``` with ```doc/config.h.dist``` template and run:
+#### First create ```doc/config.h``` with ```doc/config.h.dist``` template and run build command:
 `./scripts/gcc_build.sh`
 
 <br>
 
 ## To Run
-`./build/scrapers_cpp.out scraper_key`
+`./build/scrapers_cpp.out --SCRAPER_KEY`
 
 `--dev` -> use this attr to output scraped data in terminal without make API post.
 
 <br>
 
-## Scrapers key
+## About Scrapers key
 `nfe-notas-tecnicas` [nfe.fazenda.gov.br / Notas Técnicas](http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=tW+YMyk/50s=)
 
 `nfe-avisos` [nfe.fazenda.gov.br / Avisos](http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false)
