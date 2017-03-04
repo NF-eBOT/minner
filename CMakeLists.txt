@@ -1,6 +1,7 @@
-cmake_minimum_required(VERSION 4)
+cmake_minimum_required(VERSION 3.5.1)
 project(minner CXX)
 
+link_directories(${CMAKE_CURRENT_BINARY_DIR})
 set(SOURCE_FILES app/main.cpp)
 
 FIND_PACKAGE(CURL)
@@ -12,6 +13,7 @@ INCLUDE_DIRECTORIES(
         lib/
         doc/
 )
+
 
 add_executable(minner ${SOURCE_FILES})
 
