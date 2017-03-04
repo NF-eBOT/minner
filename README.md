@@ -17,8 +17,7 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 
 #### # For windows, the best way is cmake, with Vagrant machine:
 * Install [Vagrant](https://www.vagrantup.com/downloads.html)
-* `vagrant up`
-
+* `vagrant up && vagrant ssh`, in vagrant machine run `cd /data && cmake . && make`
 <br>
 
 ## To Run
