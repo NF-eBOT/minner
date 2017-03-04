@@ -5,17 +5,23 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 
 <br>
 
-## To Build (only tested in macOS)
-#### Dependencies
+## To compile
+#### Shared lib dependencie
 [libcurl](https://curl.haxx.se/libcurl) - install via OS package manager (ex: apt install libcurl)
 
-#### First create ```doc/config.h``` with ```doc/config.h.dist``` template and run build command:
-`./scripts/gcc_build.sh`
+#### First create ```doc/config.h``` with ```doc/config.h.dist``` template.
+
+#### For macOS and Linux, the best way is cmake:
+`cmake . && make`
+
+#### For windows, the best way is cmake, with Vagrant machine:
+* Install [Vagrant](https://www.vagrantup.com/downloads.html)
+* `vagrant up`
 
 <br>
 
 ## To Run
-`./build/scrapers_cpp.out --SCRAPER_KEY`
+`./minner --SCRAPER_KEY`
 
 <br>
 
@@ -33,7 +39,7 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
   * `app/include`: application lib/modules source file
     * `app/include/parsers`: web page parse layer
     * `app/include/services`: external web services
-* `build`: where builded executable is saved
+* `build`: where builded executable is saved (with you use ./scripts/gcc_build.sh)
 * `doc`: configuration file
 * `lib`: vendor libs
 * `scripts`: scripts to help build and install
