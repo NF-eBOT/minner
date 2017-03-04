@@ -65,7 +65,6 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 <br>
 
 ## TODO
-* Create makefile based in `spike/gcc_build.sh`
 * Make `doc/config.h` more simple
 * Change all #include to use .h files
 * Make const parameters in `include/helpers.h`
