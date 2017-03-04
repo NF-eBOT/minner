@@ -5,7 +5,7 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 
 # Compile and Run
 
-## # Production:
+### # Production:
 #### # 1. Dependencies
 * gcc >= 3.5.1
 * [libcurl](https://curl.haxx.se/libcurl) - install via OS package manager (ex: apt install libcurl)
@@ -21,7 +21,7 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 
 <br>
 
-## # With Vagrant :
+### # With Vagrant :
 `(best choice for Windows and dev)`
 #### # 1. Dependencies
 * Install [Vagrant](https://www.vagrantup.com/downloads.html)
