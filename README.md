@@ -1,35 +1,69 @@
-*under construction!
-
 # Minner - Web Scraper
 Minner is a easy way to make any web scraper for data-mining, builded in C++14, with only one shared library, libcurl. Have log messages with slack and terminal.
 
 <br>
 
-## To compile
-#### # Dependencies
+# Compile and Run
+
+### Production:
+#### 1. Dependencies
+* gcc >= 3.5.1
 * [libcurl](https://curl.haxx.se/libcurl) - install via OS package manager (ex: apt install libcurl)
+
+#### 2. Build configuration file
 * Create ```doc/config.h``` with ```doc/config.h.dist``` template.
 
-#### # For macOS and Linux, the best way is cmake:
+#### 3. Compile:
 * `cmake . && make`
 
-#### # For windows, the best way is cmake, with Vagrant machine:
+#### 4. Run:
+* `./minner --SCRAPER_KEY`
+
+<br>
+
+### With Docker:
+`(best choice for dev and good choice for production)`
+#### 1. Dependencies
+* Install [Docker](https://www.docker.com/community-edition#/download)
+
+#### 2. Build configuration file
+* Create ```doc/config.h``` with ```doc/config.h.dist``` template.
+
+#### 3. Build container and compile minner (one time, but every you change config.h)
+* `docker build -t nfebot:minner .`
+
+#### # 4. Run
+* `docker run -ti --rm nfebot/minner:v2 ./minner --SCRAPER_KEY`
+
+<br>
+
+### With Vagrant:
+`(best choice for Windows and dev)`
+#### 1. Dependencies
 * Install [Vagrant](https://www.vagrantup.com/downloads.html)
-* `vagrant up`
+
+#### 2. Create vm and enter
+* `vagrant up && vagrant ssh`
+
+#### 3. Build configuration file
+* Create ```doc/config.h``` with ```doc/config.h.dist``` template.
+
+#### # 4. Compile
+* `cd /data && cmake . && make`
+
+#### # 5. Run:
+* `./minner --SCRAPER_KEY`
 
 <br>
 
-## To Run
-`./minner --SCRAPER_KEY`
-
-<br>
-
-## About Scraper key
+## Available Scraper keys
 `--nfe-notas-tecnicas` [nfe.fazenda.gov.br / Notas Técnicas](http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=tW+YMyk/50s=)
 
 `--nfe-avisos` [nfe.fazenda.gov.br / Avisos](http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false)
 
 `--sped` [sped.rfb.gov.br / Destaques](http://sped.rfb.gov.br)
+
+#### For create a new scraper key/parser, explore `app/include/parsers` source.
 
 <br>
 
@@ -47,7 +81,6 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 <br>
 
 ## TODO
-* Create makefile based in `spike/gcc_build.sh`
 * Make `doc/config.h` more simple
 * Change all #include to use .h files
 * Make const parameters in `include/helpers.h`
