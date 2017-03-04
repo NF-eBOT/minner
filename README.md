@@ -33,7 +33,7 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 * `docker build -t nfebot/minner .`
 
 #### # 4. Run
-* `docker run -ti --rm nfebot/minner:v2 ./minner --SCRAPER_KEY`
+* `docker run -ti --rm nfebot/minner --SCRAPER_KEY`
 
 <br>
 
