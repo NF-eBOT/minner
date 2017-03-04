@@ -19,7 +19,7 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 #### # 4. Run:
 * `./minner --SCRAPER_KEY`
 
-
+<br>
 
 ## # With Vagrant :
 `(best choice for Windows and dev)`
@@ -37,11 +37,6 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 
 #### # 4. Run:
 * `./minner --SCRAPER_KEY`
-
-<br>
-
-## To Run
-`./minner --SCRAPER_KEY`
 
 <br>
 
