@@ -3,6 +3,8 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 
 In original version (some parts are still), this scraper is only a service for NF-eBOT, but now, my objective is refactor this project to make more peoples use this.
 
+Make fork and refactor for your situation.
+
 <br>
 
 # Compile and Run
