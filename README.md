@@ -1,9 +1,11 @@
+*under construction!
+
 # Minner - Web Scraper
 Minner is a easy way to make any web scraper for data-mining, builded in C++14, with only one shared library, libcurl. Have log messages with slack and terminal.
 
 <br>
 
-## To Build
+## To Build (only tested in macOS)
 #### Dependencies
 [libcurl](https://curl.haxx.se/libcurl) - install via OS package manager (ex: apt install libcurl)
 
@@ -14,8 +16,6 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 
 ## To Run
 `./build/scrapers_cpp.out --SCRAPER_KEY`
-
-`--dev` -> use this attr to output scraped data in terminal without make API post.
 
 <br>
 
@@ -29,14 +29,15 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 <br>
 
 ## Folder Structure
+* `app`: application source files
+  * `app/include`: application lib/modules source file
+    * `app/include/parsers`: web page parse layer
+    * `app/include/services`: external web services
 * `build`: where builded executable is saved
 * `doc`: configuration file
-* `include`: local headers
-* `include/parsers`: logic of portals/sites scraped
 * `lib`: vendor libs
 * `scripts`: scripts to help build and install
 * `spike`: files to test technologies or ideas
-* `src`: main file
 
 <br>
 
@@ -45,13 +46,14 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 * Make `doc/config.h` more simple
 * Change all #include to use .h files
 * Make const parameters in `include/helpers.h`
-* Refactor this code block in `src/main.cpp`:
+* Refactor this code block in `app/main.cpp`:
 ```
 rapidxml::xml_document<> doc;
 char *cstr = new char[res.size() + 1];
 strcpy(cstr, res.c_str());
 doc.parse<0>(cstr);
 ```
+And a lot of more refactors...
 
 <br>
 
