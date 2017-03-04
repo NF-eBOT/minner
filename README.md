@@ -40,7 +40,7 @@ Minner is a easy way to make any web scraper for data-mining, builded in C++14, 
 
 <br>
 
-## Available Scraper key
+## Available Scraper keys
 `--nfe-notas-tecnicas` [nfe.fazenda.gov.br / Notas Técnicas](http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=tW+YMyk/50s=)
 
 `--nfe-avisos` [nfe.fazenda.gov.br / Avisos](http://www.nfe.fazenda.gov.br/portal/informe.aspx?ehCTG=false)
