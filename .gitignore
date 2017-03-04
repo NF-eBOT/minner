@@ -9,4 +9,7 @@ CMakeCache.txt
 cmake_install.cmake
 Makefile
 doc/config.h
-CMakeLists.txt
+minner
+minner.cbp
+steps_vegrant.sh
+.vagrant/

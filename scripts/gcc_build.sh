@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 g++ \
-	-std=c++14 \
+	-std=gnu++14 \
 	app/main.cpp \
 	-Iapp/include/ \
 	-Ilib/ \
