@@ -1,7 +1,8 @@
 # Minner - Web Scraper
-Minner is a easy way to make any web scraper for data-mining, builded in C++14, with only one shared library, libcurl. Have log messages with slack and terminal.
+Minner is an easy way to make any web scraper for data-mining. 
+Builded in C++14, with only one shared library, libcurl. With log messages through slack and terminal.
 
-In original version (some parts are still), this scraper is only a service for NF-eBOT, but now, my objective is refactor this project to make more peoples use this.
+In original version (some parts are still), this scraper is only a service for NF-eBOT, but now, my objective is to refactor this project to make more people use this.
 
 Make fork and refactor for your situation.
 
@@ -33,7 +34,7 @@ Make fork and refactor for your situation.
 #### 2. Build configuration file
 * Create ```doc/config.h``` with ```doc/config.h.dist``` template.
 
-#### 3. Build container and compile minner (one time, but every you change config.h)
+#### 3. Build container and compile minner (first time, and every time you change config.h)
 * `docker build -t nfebot/minner .`
 
 #### # 4. Run
